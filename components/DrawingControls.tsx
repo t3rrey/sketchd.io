@@ -10,13 +10,12 @@ import downloadIcon from "../public/assets/downloadIcon.svg";
 import deleteIcon from "../public/assets/deleteIcon.svg";
 
 import { addRect } from "../services/shapes.service";
-import { canvas } from "./DrawingPad";
-
+import DrawingPad, { canvas } from "./DrawingPad";
 
 const DrawingControls = () => {
   return (
     <div className={Styles.main_header_wrapper}>
-      <div>
+      <div className={Styles.main_side_wrap}>
         <div className={Styles.main_sidebar_wrapper}>
           <div className={Styles.main_button_wrapper}>
             <Image src={penIcon} layout="responsive" />
@@ -43,9 +42,9 @@ const DrawingControls = () => {
             <Image src={deleteIcon} layout="responsive" />
           </div>
         </div>
+        <DrawingPad />
       </div>
       <div className={Styles.main_top_wrapper}></div>
-      
     </div>
   );
 };

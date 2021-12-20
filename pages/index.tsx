@@ -6,7 +6,6 @@ const Home: NextPage = () => {
   return (
     <div>
       <DrawingControls />
-      <DrawingPad />
     </div>
   );
 };
