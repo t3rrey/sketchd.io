@@ -18,6 +18,10 @@
     padding: 25px;
 }
 
+.main_button_wrapper:hover {
+    background: rgb(0, 66, 70);
+}
+
 .main_side_wrap {
     display: flex;
 }

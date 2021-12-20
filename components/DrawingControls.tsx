@@ -9,7 +9,7 @@ import polygonIcon from "../public/assets/polygonIcon.svg";
 import downloadIcon from "../public/assets/downloadIcon.svg";
 import deleteIcon from "../public/assets/deleteIcon.svg";
 
-import { addRect } from "../services/shapes.service";
+import { addRect } from "../tools/shapes.tool";
 import DrawingPad, { canvas } from "./DrawingPad";
 
 const DrawingControls = () => {
