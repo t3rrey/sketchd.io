@@ -1,6 +1,7 @@
 import { fabric } from "fabric";
 
 const setCanvasBrush = (canvas, brushName) => {
+    canvas.isDrawingMode = !canvas.isDrawingMode;
     switch (brushName) {
         default: return;
     }
