@@ -1,6 +1,6 @@
 import { fabric } from "fabric";
 
-const setCanvasBrush = (canvas, brushName) => {
+export const setCanvasBrush = (canvas, brushName) => {
     canvas.isDrawingMode = !canvas.isDrawingMode;
     switch (brushName) {
         default: return;
@@ -94,6 +94,45 @@ const horizontalLineBrush = () => {
         return patternCanvas;
     };
     return hLinePatternBrush;
+};
+const drawStraightLines = (canvas) => {
+    let line, isDown;
+    canvas.on("mouse:down", function(o) {
+        isDown = true;
+        var pointer = canvas.getPointer(o.e);
+        var points = [pointer.x, pointer.y, pointer.x, pointer.y];
+        if (document.getElementById("linetype").value == "dashed") {
+            line = new fabric.Line(points, {
+                strokeWidth: 5,
+                strokeDashArray: [15, 5],
+                fill: "gray",
+                stroke: "gray",
+                originX: "center",
+                originY: "center",
+            });
+        } else {
+            line = new fabric.Line(points, {
+                strokeWidth: 5,
+                fill: "black",
+                stroke: "black",
+                originX: "center",
+                originY: "center",
+            });
+        }
+
+        canvas.add(line);
+    });
+
+    canvas.on("mouse:move", function(o) {
+        if (!isDown) return;
+        var pointer = canvas.getPointer(o.e);
+        line.set({ x2: pointer.x, y2: pointer.y });
+        canvas.renderAll();
+    });
+
+    canvas.on("mouse:up", function(o) {
+        isDown = false;
+    });
 };
 
 export default setCanvasBrush;

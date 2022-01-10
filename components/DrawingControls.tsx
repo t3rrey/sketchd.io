@@ -9,42 +9,57 @@ import polygonIcon from "../public/assets/polygonIcon.svg";
 import downloadIcon from "../public/assets/downloadIcon.svg";
 import deleteIcon from "../public/assets/deleteIcon.svg";
 
-import { addRect } from "../tools/shapes.tool";
+import {
+  drawRectangleShape,
+  drawCircleShape,
+  drawTriangleShape,
+} from "../tools/shapes.tool";
 import DrawingPad, { canvas } from "./DrawingPad";
+import { setCanvasBrush } from "../tools/pen.tool";
+import { clearCanvas } from "../tools/history.tool";
 
 const DrawingControls = () => {
   return (
-    <div className={Styles.main_header_wrapper}>
-      <div className={Styles.main_side_wrap}>
-        <div className={Styles.main_sidebar_wrapper}>
-          <div className={Styles.main_button_wrapper}>
-            <Image src={penIcon} layout="responsive" />
-          </div>
-          <div
-            className={Styles.main_button_wrapper}
-            onClick={() => addRect(canvas)}
-          >
-            <Image src={squareIcon} />
-          </div>
-          <div className={Styles.main_button_wrapper}>
-            <Image src={circleIcon} layout="responsive" />
-          </div>
-          <div className={Styles.main_button_wrapper}>
-            <Image src={triangleIcon} layout="responsive" />
-          </div>
-          <div className={Styles.main_button_wrapper}>
-            <Image src={polygonIcon} layout="responsive" />
-          </div>
-          <div className={Styles.main_button_wrapper}>
-            <Image src={downloadIcon} layout="responsive" />
-          </div>
-          <div className={Styles.main_button_wrapper}>
-            <Image src={deleteIcon} layout="responsive" />
-          </div>
+    <div className={Styles.main_side_wrap}>
+      <div className={Styles.main_sidebar_wrapper}>
+        <div
+          className={Styles.main_button_wrapper}
+          onClick={() => setCanvasBrush(canvas)}
+        >
+          <Image src={penIcon} layout="responsive" />
         </div>
-        <DrawingPad />
+        <div
+          className={Styles.main_button_wrapper}
+          onClick={() => drawRectangleShape(canvas)}
+        >
+          <Image src={squareIcon} />
+        </div>
+        <div
+          className={Styles.main_button_wrapper}
+          onClick={() => drawCircleShape(canvas)}
+        >
+          <Image src={circleIcon} layout="responsive" />
+        </div>
+        <div
+          className={Styles.main_button_wrapper}
+          onClick={() => drawTriangleShape(canvas)}
+        >
+          <Image src={triangleIcon} layout="responsive" />
+        </div>
+        <div className={Styles.main_button_wrapper}>
+          <Image src={polygonIcon} layout="responsive" />
+        </div>
+        <div className={Styles.main_button_wrapper}>
+          <Image src={downloadIcon} layout="responsive" />
+        </div>
+        <div
+          className={Styles.main_button_wrapper}
+          onClick={() => clearCanvas(canvas)}
+        >
+          <Image src={deleteIcon} layout="responsive" />
+        </div>
       </div>
-      <div className={Styles.main_top_wrapper}></div>
+      <DrawingPad />
     </div>
   );
 };

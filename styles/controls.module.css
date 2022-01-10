@@ -1,12 +1,6 @@
 .main_sidebar_wrapper {
-    width: 5%;
-    background: rgb(0, 66, 37);
-}
-
-.main_top_wrapper {
-    width: 100%;
-    height: 75px;
-    background: rgb(0, 66, 37);
+    width: 80px;
+    background: rgb(109, 90, 109);
 }
 
 .main_header_wrapper {
@@ -24,4 +18,5 @@
 
 .main_side_wrap {
     display: flex;
+    height: 100vh;
 }
