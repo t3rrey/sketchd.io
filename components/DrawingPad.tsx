@@ -9,7 +9,7 @@ const getCanvas = () => {
 };
 
 const getDimensions = () => ({
-  height: window.innerHeight - window.innerHeight / 20,
+  height: window.innerHeight,
   width: window.innerWidth - window.innerWidth / 20,
 });
 
